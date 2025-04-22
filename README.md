@@ -6,3 +6,4 @@ In this project I use Reactjs(Vite) Gimini and Pixels
 
 ![imag 1](screenshots/home.png)
 ![imag 1](screenshots/output.png)
+
