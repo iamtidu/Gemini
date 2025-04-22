@@ -132,30 +132,30 @@ const SearchComponent = () => {
         setOutput('Output:');
         setImages([]);
 
-        try {
-            // Dynamically import pexels to avoid require() issues
-            const { createClient } = await import('pexels');
-            const client = createClient(import.meta.env.VITE_PIXEL_API);
+        // try {
+        //     // Dynamically import pexels to avoid require() issues
+        //     const { createClient } = await import('pexels');
+        //     const client = createClient(import.meta.env.VITE_PIXEL_API);
 
-            // Fetch images from Pexels
-            const photosResponse = await client.photos.search({ 
-                query, 
-                per_page: 8 
-            });
-            const photoUrls = photosResponse.photos.map(photo => photo.src.large2x);
-            setImages(photoUrls);
+        //     // Fetch images from Pexels
+        //     const photosResponse = await client.photos.search({ 
+        //         query, 
+        //         per_page: 8 
+        //     });
+        //     const photoUrls = photosResponse.photos.map(photo => photo.src.large2x);
+        //     setImages(photoUrls);
 
-            // Fetch content from Gemini
-            const result = await model.generateContent(query);
-            const response = await result.response;
-            const text = response.text();
-            setResult(text);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            setResult("An error occurred while fetching data. Please try again.");
-        } finally {
-            setIsLoading(false);
-        }
+        //     // Fetch content from Gemini
+        //     const result = await model.generateContent(query);
+        //     const response = await result.response;
+        //     const text = response.text();
+        //     setResult(text);
+        // } catch (error) {
+        //     console.error("Error fetching data:", error);
+        //     setResult("An error occurred while fetching data. Please try again.");
+        // } finally {
+        //     setIsLoading(false);
+        // }
     };
 
     return (
@@ -170,7 +170,7 @@ const SearchComponent = () => {
                 <div className="Result">
                     {result ? (
                         <>
-                            {images.length > 0 && (
+                            {/* {images.length > 0 && (
                                 <>
                                     <p>Related Images</p>
                                     <div className="container">
@@ -184,7 +184,7 @@ const SearchComponent = () => {
                                         ))}
                                     </div>
                                 </>
-                            )}
+                            )} */}
                             <div className="fixed-width-pre">
                                 <Markdown 
                                     rehypePlugins={[rehypeRaw]} 
